@@ -1,0 +1,39 @@
+
+camera:
+  index: 0
+  frame_width: 320
+  frame_height: 240
+  display_window: true     # Show debug window with boxes/labels
+
+heuristics:
+  min_person_area: 1200        # ignore tiny detections
+  fall_aspect_ratio: 1.20      # width/height above this implies "lying"
+  floor_region_ratio: 0.2      # bottom 20% of frame considered "floor"
+  motion_window_secs: 2.0      # low motion period after potential fall
+  vertical_drop_thresh: 0.20   # fraction of frame height change within 1s
+
+alerts:
+  cancel_seconds: 10           # 5–10 seconds recommended
+  speak_template: "Emergency. Possible fall detected for {name}. Location: {location}. If you can hear this, say 'cancel' or press the button."
+  siren_file: "siren.wav"      # optional, falls back to beep/voice
+
+person:
+  name: "Alex"
+  location: "Living Room"
+
+notifiers:
+  local_voice: true
+  local_siren: true
+  sms: false
+  call: false
+
+twilio:
+  account_sid: ""    # or use env TWILIO_ACCOUNT_SID
+  auth_token: ""     # or use env TWILIO_AUTH_TOKEN
+  from_number: ""    # or use env TWILIO_FROM
+  sms_to: ""         # or env ALERT_SMS_TO
+  call_to: ""        # or env ALERT_CALL_TO
+
+gpio:
+  use_gpio: false
+  cancel_button_pin: 17   # BCM numbering, requires pull-up/down wiring
