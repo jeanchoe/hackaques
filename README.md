@@ -1,7 +1,7 @@
 
 # Pi Fall Detector (Offline-first)
 
-An offline-first fall detection demo for Raspberry Pi using OpenCV. It detects possible falls from a camera feed with lightweight heuristics, starts a 10-second cancel timer (to reduce false alarms), and if not canceled it triggers notifications:
+CareLens is an offline-first fall detection demo for Raspberry Pi using OpenCV. It detects possible falls from a camera feed with lightweight heuristics, starts a 10-second cancel timer (to reduce false alarms), and if not canceled it instantly triggers an alert to caregivers in real-time. It eliminates the need for wearables.
 
 - **Local alert (always works offline):** plays a siren and speaks a message via the Pi speaker.
 - **Optional SMS/phone call (needs internet):** uses Twilio if credentials are provided.
